@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mo-bile Studios</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+   html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #111;
+  color: #fff;
+  line-height: 1.6;
+}
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: #111;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00ff99;
+    }
+    .hero {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(/images/stttttttttttthjjj.jpg) no-repeat center center/cover;
+      z-index: -1;
+      filter: brightness(0.4);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      animation: fadeIn 2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    .whatsapp-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 20px;
+      background-color: #078335;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .whatsapp-button:hover {
+      background-color: #1da851;
+      transform: scale(1.1);
+      transition: 0.3s;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mo-bile Studios</h1>
+    <p>Where sound meets soul</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Unleash Your Sound</h1>
+  </div>
+
+  <section id="about">
+    <h2>ABOUT MO-BILE STUDIOS.</h2>
+    <p>Mo-bile Studios is a professional recording studio dedicated to capturing high-quality sound for artists, podcasters, and creators of all kinds. Our mission is to bring your ideas to life with precision, passion, and creativity.</p>
+    <p>We provide a flexible recording space that moves with you—anytime, anywhere. Whether you need studio time or mobile sessions, we've got you covered. And best of all, our services are very affordable for all budgets.</p>
+  </section>
+
+  <section id="services">
+    <h2>WHAT WE OFFER.</h2>
+    <ul>
+      <li>🎙️ Vocal Recording</li>
+      <li>🎧 Mixing & Mastering</li>
+      <li>🎚️ Mobile Studio Sessions</li>
+      <li>🎤 Voice-overs & Podcast Recording</li>
+    </ul>
+    <a
+      class="whatsapp-button"
+      href="https://wa.me/233208385615?text=hi%20MO%2C%20i%27m%20..."
+      target="_blank"
+    >
+      Book a Session
+    </a>
+  </section>
+
+  <script>
+    // Scroll animation
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
