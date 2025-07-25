@@ -62,7 +62,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('stttttttttttthjjj') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
       z-index: -1;
       filter: brightness(0.3);
     }
@@ -112,6 +112,7 @@
       width: 300px;
       height: 220px;
       perspective: 1000px;
+      cursor: pointer;
     }
     .flip-card-inner {
       position: relative;
@@ -121,7 +122,8 @@
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
-    .flip-card:hover .flip-card-inner {
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
       transform: rotateY(180deg);
     }
     .flip-card-front, .flip-card-back {
@@ -141,8 +143,8 @@
       border: 1px solid #444;
     }
     .flip-card-back {
-      background-color: #070820;
-      color: #d3cdcd;
+      background-color: #00ff99;
+      color: #111;
       transform: rotateY(180deg);
     }
     .whatsapp-button {
@@ -249,6 +251,14 @@
 
     sections.forEach(section => {
       observer.observe(section);
+    });
+
+    // Flip card tap support for mobile
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
     });
   </script>
 </body>
